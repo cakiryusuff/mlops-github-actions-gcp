@@ -43,6 +43,13 @@ jobs:
               run: |
                 gcloud container clusters get-credentials $GKE_CLUSTER --region $GKE_REGION --project $PROJECT_ID
 
+            - name: Create GCP Key Secret in Kubernetes
+              run: |
+                echo '${{ secrets.GCP_SA_KEY }}' > gcp-key.json
+                kubectl create secret generic gcp-sa-key \
+                  --from-file=gcp-key.json \
+                  --dry-run=client -o yaml | kubectl apply -f -
+                    
             - name: Deploying to Kubernetes
               run: |
                 kubectl apply -f kubernetes-deployment.yaml

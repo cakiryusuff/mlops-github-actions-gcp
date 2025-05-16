@@ -21,6 +21,8 @@ spec:
           value: ${{ secrets.DAGSHUB_TOKEN }}
         - name: MLFLOW_TRACKING_URI
           value: ${{ secrets.MLFLOW_TRACKING_URI }}
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /app/secrets/gcp-key.json
         image: us-central1-docker.pkg.dev/certain-frame-458614-i8/my-repo/mlops-app:latest
         ports:
         - containerPort: 5000
