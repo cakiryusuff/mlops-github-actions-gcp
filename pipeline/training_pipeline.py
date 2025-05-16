@@ -6,8 +6,8 @@ from utils.common_functions import read_yaml
 
 
 if __name__ == "__main__":
-    data_ingestion = DataIngestion(read_yaml(CONFIG_PATH))
-    data_ingestion.run()
+    # data_ingestion = DataIngestion(read_yaml(CONFIG_PATH))
+    # data_ingestion.run()
     
     data_processing = DataProcessing(read_yaml(CONFIG_PATH))
     data_processing.run()
