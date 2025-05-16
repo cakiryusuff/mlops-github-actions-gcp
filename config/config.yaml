@@ -14,7 +14,6 @@ data_processing:
       - "Bumps"
       - "Other_Faults"
 
-
 model_training:
   random_search_params:
     estimator: lgbm

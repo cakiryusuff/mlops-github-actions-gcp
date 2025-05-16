@@ -14,6 +14,13 @@ spec:
     spec:
       containers:
       - name: mlops-app
+        env:
+        - name: DAGSHUB_USERNAME
+          value: ${{ secrets.DAGSHUB_USERNAME }}
+        - name: DAGSHUB_TOKEN
+          value: ${{ secrets.DAGSHUB_TOKEN }}
+        - name: MLFLOW_TRACKING_URI
+          value: ${{ secrets.MLFLOW_TRACKING_URI }}
         image: us-central1-docker.pkg.dev/certain-frame-458614-i8/my-repo/mlops-app:latest
         ports:
         - containerPort: 5000

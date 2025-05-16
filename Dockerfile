@@ -10,4 +10,5 @@ EXPOSE 5000
 
 ENV FLASK_APP=application.py
 
-CMD ["python" , "application.py"]
+# Container başladığında önce eğit, sonra API'yi başlat
+CMD ["sh", "-c", "python pipeline/training_pipeline.py && python application.py"]

@@ -10,8 +10,12 @@ from config.paths_config import *
 from utils.common_functions import read_yaml, load_data
 import mlflow
 import mlflow.sklearn
+import time
 
 logger = get_logger(__name__)
+
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+mlflow.set_experiment(f"{int(time.time() * 1000)}-my-experiment")
 
 class ModelTraining:
     def __init__(self, config, train_path, test_path, model_output_path):
