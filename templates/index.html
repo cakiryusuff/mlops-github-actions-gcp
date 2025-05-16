@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Enterance Form</title>
+    <link rel="stylesheet" href="{{ url_for('static' , filename='style.css') }}">
+
+</head>
+<body>
+    <h2>Data Enterance</h2>
+    <form action="/" method="post">
+        <label for="Steel_Plate_Thickness">Steel Plate Thickness:</label><br>
+        <input type="number" step="any" name="Steel_Plate_Thickness" required><br><br>
+
+        <label for="Length_of_Conveyer">Length of Conveyer:</label><br>
+        <input type="number" step="any" name="Length_of_Conveyer" required><br><br>
+
+        <label for="Edges_Index">Edges Index:</label><br>
+        <input type="number" step="any" name="Edges_Index" required><br><br>
+
+        <label for="Minimum_of_Luminosity">Minimum of Luminosity:</label><br>
+        <input type="number" step="any" name="Minimum_of_Luminosity" required><br><br>
+
+        <label for="Edges_Y_Index">Edges Y Index:</label><br>
+        <input type="number" step="any" name="Edges_Y_Index" required><br><br>
+
+        <label for="Square_Index">Square Index:</label><br>
+        <input type="number" step="any" name="Square_Index" required><br><br>
+
+        <input type="submit" value="Gönder">
+    </form>
+
+    
+    {% if prediction is not none %}
+    <div class="result">
+        <p>{{ prediction }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>

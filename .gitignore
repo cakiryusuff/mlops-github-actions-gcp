@@ -1,0 +1,6 @@
+MLOPS_PROJECT_STEEL.egg-info/
+venv/
+gcp-key.json
+mlruns/
+*/__pycache__/
+logs/
