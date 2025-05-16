@@ -23,17 +23,10 @@ spec:
         - name: MLFLOW_TRACKING_URI
           value: ${{ secrets.MLFLOW_TRACKING_URI }}
         - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: /app/secrets/gcp-key.json
+          value: ${{ sercrets.GCP_SA_KEY }}
         ports:
           - containerPort: 5000
-        volumeMounts:
-          - name: gcp-sa-volume
-            mountPath: /app/secrets
-            readOnly: true
-      volumes:
-        - name: gcp-sa-volume             # ⬅ aynı isim burada da olmalı
-          secret:
-            secretName: gcp-sa-key
+
 ---
 
 apiVersion: v1

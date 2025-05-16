@@ -4,4 +4,3 @@ gcp-key.json
 mlruns/
 */__pycache__/
 logs/
-artifacts/*
