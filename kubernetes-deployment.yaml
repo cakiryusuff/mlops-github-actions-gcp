@@ -16,16 +16,16 @@ spec:
       - name: mlops-app
         image: us-central1-docker.pkg.dev/certain-frame-458614-i8/my-repo/mlops-app:latest
         env:
-          - name: DAGSHUB_USERNAME
+          - name: MLFLOW_TRACKING_USERNAME
             valueFrom:
               secretKeyRef:
                 name: dagshub-secrets
-                key: DAGSHUB_USERNAME
-          - name: DAGSHUB_TOKEN
+                key: MLFLOW_TRACKING_USERNAME
+          - name: MLFLOW_TRACKING_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: dagshub-secrets
-                key: DAGSHUB_TOKEN
+                key: MLFLOW_TRACKING_PASSWORD
           - name: MLFLOW_TRACKING_URI
             valueFrom:
               secretKeyRef:

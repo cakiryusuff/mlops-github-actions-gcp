@@ -46,8 +46,8 @@ jobs:
             - name: Create DAGsHub Secrets in Kubernetes
               run: |
                 kubectl create secret generic dagshub-secrets \
-                  --from-literal=DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
-                  --from-literal=DAGSHUB_TOKEN=${{ secrets.DAGSHUB_TOKEN }} \
+                  --from-literal=MLFLOW_TRACKING_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
+                  --from-literal=MLFLOW_TRACKING_PASSWORD=${{ secrets.DAGSHUB_TOKEN }} \
                   --from-literal=MLFLOW_TRACKING_URI=${{ secrets.MLFLOW_TRACKING_URI }} \
                   --dry-run=client -o yaml | kubectl apply -f -
 

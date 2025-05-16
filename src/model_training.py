@@ -14,8 +14,6 @@ import time
 
 logger = get_logger(__name__)
 
-mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
-
 class ModelTraining:
     def __init__(self, config, train_path, test_path, model_output_path):
         self.config = config
