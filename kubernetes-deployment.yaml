@@ -27,7 +27,7 @@ spec:
         ports:
           - containerPort: 5000
         volumeMounts:
-          - name: gcp-sa-volume
+          - name: mlops-app
             mountPath: /app/secrets
             readOnly: true
 
