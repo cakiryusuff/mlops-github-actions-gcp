@@ -40,7 +40,7 @@ class ModelTraining:
             X_test = test_df.drop(columns=['labels'])
             y_test = test_df['labels']
             
-            logger.info("Data loaded and split into features and target")
+            logger.info("Data loaded and split into features and target.")
             
             return X_train, y_train, X_test, y_test
         except Exception as e:
