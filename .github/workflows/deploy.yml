@@ -43,11 +43,12 @@ jobs:
               run: |
                 gcloud container clusters get-credentials $GKE_CLUSTER --region $GKE_REGION --project $PROJECT_ID
 
-            - name: Create GCP Key Secret in Kubernetes
+            - name: Create DAGsHub Secrets in Kubernetes
               run: |
-                echo "${{ secrets.GCP_SA_KEY }}" > gcp-key.json
-                kubectl create secret generic gcp-sa-key \
-                  --from-file=gcp-key.json \
+                kubectl create secret generic dagshub-secrets \
+                  --from-literal=DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
+                  --from-literal=DAGSHUB_TOKEN=${{ secrets.DAGSHUB_TOKEN }} \
+                  --from-literal=MLFLOW_TRACKING_URI=${{ secrets.MLFLOW_TRACKING_URI }} \
                   --dry-run=client -o yaml | kubectl apply -f -
 
             - name: Deploying to Kubernetes

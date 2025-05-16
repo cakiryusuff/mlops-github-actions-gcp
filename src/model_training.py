@@ -15,7 +15,6 @@ import time
 logger = get_logger(__name__)
 
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
-mlflow.set_experiment(f"{int(time.time() * 1000)}-my-experiment")
 
 class ModelTraining:
     def __init__(self, config, train_path, test_path, model_output_path):
@@ -40,7 +39,7 @@ class ModelTraining:
             X_test = test_df.drop(columns=['labels'])
             y_test = test_df['labels']
             
-            logger.info("Data loaded and split into features and target.")
+            logger.info("Data loaded and split into features and target")
             
             return X_train, y_train, X_test, y_test
         except Exception as e:

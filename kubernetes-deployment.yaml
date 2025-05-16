@@ -16,14 +16,22 @@ spec:
       - name: mlops-app
         image: us-central1-docker.pkg.dev/certain-frame-458614-i8/my-repo/mlops-app:latest
         env:
-        - name: DAGSHUB_USERNAME
-          value: ${{ secrets.DAGSHUB_USERNAME }}
-        - name: DAGSHUB_TOKEN
-          value: ${{ secrets.DAGSHUB_TOKEN }}
-        - name: MLFLOW_TRACKING_URI
-          value: ${{ secrets.MLFLOW_TRACKING_URI }}
-        - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: ${{ sercrets.GCP_SA_KEY }}
+          - name: DAGSHUB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: dagshub-secrets
+                key: DAGSHUB_USERNAME
+          - name: DAGSHUB_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: dagshub-secrets
+                key: DAGSHUB_TOKEN
+          - name: MLFLOW_TRACKING_URI
+            valueFrom:
+              secretKeyRef:
+                name: dagshub-secrets
+                key: MLFLOW_TRACKING_URI
+
         ports:
           - containerPort: 5000
 
